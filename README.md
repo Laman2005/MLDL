@@ -48,41 +48,47 @@ unistd.h (for sleep functions)
 fcntl.h (for file handling)
 string.h (for string manipulation)
 time.h (for random seed generation)
+
+<pre>
 Compilation and Running the Program
+</pre>
 
 Prerequisites:
-Ensure that you have a C compiler installed (e.g., GCC). The program also uses POSIX threads and semaphores, so your system should support these features.
+Ensure that you have a C compiler installed (e.g., GCC). 
+The program also uses POSIX threads and semaphores, so your system should support these libraries.
 
-Steps to Compile and Run:
-Clone the repository (if necessary): If you haven't already, clone this repository to your local machine:
-
+You can clone this rep by these steps:
 bash
 Copy
 Edit
 git clone <repository_url>
 cd <repository_directory>
-Compile the Program: To compile the program, run the following command in your terminal:
 
+To compile the program, run the following command in your terminal:
 bash
 Copy
 Edit
 gcc -o readers_writers readers_writers.c -lpthread
-Run the Program: After compiling, you can run the program using the following command:
 
+After compiling, you can run the program using the following command:
 bash
 Copy
 Edit
 ./readers_writers
-Check the Log: The program will create a log.txt file that logs all the operations performed by the reader and writer threads. You can inspect this log to see the system's behavior.
 
+The program will create a log.txt file that logs all the operations performed by the reader and writer threads. 
+You can inspect this log to see the system's behavior.
+
+<pre>
 Program Flow
-Reader Threads:
+</pre>
 
+**Reader Threads:**
 A set number of reader threads are created.
 Each reader thread attempts to read from one of the file replicas, based on load balancing.
 If a writer is active, readers will wait until the writer finishes.
-Writer Thread:
 
+**Writer Thread:**
 The writer thread periodically attempts to write to all three file replicas.
 It locks all replicas simultaneously to ensure consistent content across all files.
 While the writer is active, no readers are allowed to access the files.
@@ -92,12 +98,10 @@ Every read and write operation is logged, including the file being accessed, the
 Termination:
 
 The program will run until all reader threads finish and the writer thread completes its operations.
-Example Output
+
+**Example Output**
 In the terminal, you'll see output similar to the following for reader and writer threads:
 
-css
-Copy
-Edit
 Main here. Creating writer thread
 Main here. Creating reader thread 0
 Reader 0 reading from file1.txt
@@ -106,9 +110,6 @@ Reader 1 reading from file2.txt
 Writer modifying all replicas...
 The log file (log.txt) will contain information such as:
 
-yaml
-Copy
-Edit
 Writer active: 1
 Readers on file1.txt: 1
 Readers on file2.txt: 1
@@ -116,8 +117,8 @@ Readers on file3.txt: 0
 Content of file1.txt: Updated content by writer
 Content of file2.txt: Updated content by writer
 Content of file3.txt: Updated content by writer
------------------------------
-Code Structure
+
+**Code Structure**
 readers_writers.c: The main program file containing the implementation.
 log.txt: The log file created by the program to track operations.
 Makefile (if applicable): For building the project (if you decide to use one).
@@ -129,12 +130,14 @@ Condition Variables: To synchronize reader and writer threads when the writer is
 Semaphores: To ensure the writer thread operates without interference.
 For a more detailed explanation of the design, please refer to the accompanying report.
 
-Known Limitations
+<pre>
+Known Limitations & Future Improvements:
+</pre>
 The program currently uses random sleep times for simulation purposes, which may not cover all edge cases.
 The current implementation logs file content directly, which might not be efficient for very large files.
-Future Improvements
 Optimizing log handling to avoid repeatedly opening/closing files.
 Implementing a more advanced load balancing algorithm for readers.
 Graceful thread termination and resource cleanup after execution.
-Contact
-For questions or feedback, feel free to reach out to the project maintainers.
+
+lpanakhova16882@ada.edu.az
+For questions or feedback, feel free to reach out.
