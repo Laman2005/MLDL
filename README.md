@@ -18,14 +18,15 @@ This project implements a solution to the Readers-Writers problem with load bala
 The program ensures writer priority over readers and balances the load of readers across multiple file replicas. 
 The solution uses threads, synchronization mechanisms (mutexes, condition variables, and semaphores), and logs every read/write operation.
 
-
 Multiple reader threads spawn at random intervals and read from one of the file replicas.
 A single writer thread periodically writes to all file replicas.
-The system ensures:
+
+**The system ensures:**
 Writers are given priority over readers.
 Readers are distributed across file replicas evenly.
 The writer locks all file replicas simultaneously and updates their contents.
-Features
+
+**Features**
 Fairness: Writers are given priority, and readers must wait for writers to finish their work.
 Load Balancing: Readers are distributed evenly across file replicas.
 Thread Safety: The program ensures that no two threads access the same file at the same time.
