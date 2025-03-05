@@ -22,16 +22,16 @@ Multiple reader threads operate at random time intervals and read from one of th
 A single writer thread periodically writes to all file replicas.
 
 **The system ensures:**
-Writers are given priority over readers.
-Readers are distributed across file replicas evenly.
-The writer locks all file replicas simultaneously and updates their contents.
+1. Writers are given priority over readers.
+2. Readers are distributed across file replicas evenly.
+3. The writer locks all file replicas simultaneously and updates their contents.
 
 **Features implemented in the code**
-Fairness: Writers are given priority, and readers must wait for writers to finish their work.
-Load Balancing: Readers are distributed evenly across all file replicas.
-Thread Safety: The program ensures that no two threads access the same file meanwhile.
-Logging: Logs every read and write operation by including file access details and content.
-Randomization: Reader threads start at random time intervals, and the writer thread sleeps randomly between write operations.
+1. Fairness: Writers are given priority, and readers must wait for writers to finish their work.
+2. Load Balancing: Readers are distributed evenly across all file replicas.
+3. Thread Safety: The program ensures that no two threads access the same file meanwhile.
+4. Logging: Logs every read and write operation by including file access details and content.
+5. Randomization: Reader threads start at random time intervals, and the writer thread sleeps randomly between write operations.
 
 <pre>
 Requirements:
@@ -41,14 +41,14 @@ Programming Language: C
 <pre>
 Libraries used in the code:
 </pre>
-pthread.h (for threading)
-semaphore.h (for semaphore management)
-stdio.h (for logging)
-stdlib.h (for random number generation)
-unistd.h (for sleep functions)
-fcntl.h (for file handling)
-string.h (for string manipulation)
-time.h (for random seed generation)
+1. pthread.h (for threading)
+2. semaphore.h (for semaphore management)
+3. stdio.h (for logging)
+4. stdlib.h (for random number generation)
+5. unistd.h (for sleep functions)
+6. fcntl.h (for file handling)
+7. string.h (for string manipulation)
+8. time.h (for random seed generation)
 
 <pre>
 Compilation and Running the Program
@@ -59,22 +59,22 @@ Ensure that you have a C compiler installed (e.g., GCC).
 The program also uses POSIX threads and semaphores, so your system should support these libraries.
 
 You can clone this rep by these steps:
-bash
-Copy
-Edit
-git clone <repository_url>
-cd <repository_directory>
+-bash
+-Copy
+-Edit
+-git clone <repository_url>
+-cd <repository_directory>
 
 To compile the program, run the following command in your terminal:
-bash
-Copy
-Edit
-gcc -o readers_writers readers_writers.c -lpthread
+-bash
+-Copy
+-Edit
+-gcc -o readers_writers readers_writers.c -lpthread
 
 After compiling, you can run the program using the following command:
-bash
-Copy
-Edit
+-bash
+-Copy
+-Edit
 ./readers_writers
 
 The program will create a log.txt file that logs all the operations performed by the reader and writer threads. 
