@@ -130,7 +130,7 @@ The program uses a combination of:
 Condition Variables: To synchronize reader and writer threads when the writer is active.
 **Semaphores:** To ensure the writer thread operates without conflicts.
 
-**For a more detailed explanation of the design, please refer to the report.**
+**If you want a more detailed explanation of the design, please refer to the report.**
 <pre>
 Some Limitations & Future Improvements:
 </pre>
