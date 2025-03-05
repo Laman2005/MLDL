@@ -1,10 +1,12 @@
+<pre>
 School of Information Technologies and Engineering, ADA University
 CSCI3510 – Principles of Operating Systems 
 Spring 2025 – 3/7/2025
 Assignment 1 by Laman Panakhova 16882
+</pre>
 
 <pre>
-                                      **Readers-Writers Problem with Load Balancing**
+                                       **Readers-Writers Problem with Load Balancing**
 </pre>
 
 <pre>
@@ -29,9 +31,15 @@ Load Balancing: Readers are distributed evenly across file replicas.
 Thread Safety: The program ensures that no two threads access the same file at the same time.
 Logging: Logs every read and write operation, including file access details and content.
 Randomization: Reader threads start at random intervals, and the writer thread sleeps randomly between write operations.
-Requirements
+
+<pre>
+Requirements:
+</pre>
 Programming Language: C
-Libraries:
+
+<pre>
+Libraries used in the code:
+</pre>
 pthread.h (for threading)
 semaphore.h (for semaphore management)
 stdio.h (for logging)
@@ -41,6 +49,7 @@ fcntl.h (for file handling)
 string.h (for string manipulation)
 time.h (for random seed generation)
 Compilation and Running the Program
+
 Prerequisites:
 Ensure that you have a C compiler installed (e.g., GCC). The program also uses POSIX threads and semaphores, so your system should support these features.
 
