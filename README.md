@@ -19,11 +19,11 @@ The program ensures writer priority over readers and balances the load of reader
 The solution uses threads, synchronization mechanisms (mutexes, condition variables, and semaphores), and logs every read/write operation.
 
 Multiple reader threads operate at random time intervals and read from one of the file replicas.
-A single writer thread periodically writes to all file replicas.
+A single writer thread on a timely bases writes to all file replicas.
 
-**The system focuses on:**
-1. Writers are given priority over readers.
-2. Readers are distributed across file replicas evenly.
+**The system focuses mainly on:**
+1. That writers are given priority over readers.
+2. That readers are distributed across file replicas evenly.
 3. The writer locks all file replicas simultaneously and updates their contents.
 
 **Features implemented in the code**
