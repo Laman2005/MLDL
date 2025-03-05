@@ -26,12 +26,12 @@ Writers are given priority over readers.
 Readers are distributed across file replicas evenly.
 The writer locks all file replicas simultaneously and updates their contents.
 
-**Features**
+**Features implemented in the code**
 Fairness: Writers are given priority, and readers must wait for writers to finish their work.
-Load Balancing: Readers are distributed evenly across file replicas.
-Thread Safety: The program ensures that no two threads access the same file at the same time.
-Logging: Logs every read and write operation, including file access details and content.
-Randomization: Reader threads start at random intervals, and the writer thread sleeps randomly between write operations.
+Load Balancing: Readers are distributed evenly across all file replicas.
+Thread Safety: The program ensures that no two threads access the same file meanwhile.
+Logging: Logs every read and write operation by including file access details and content.
+Randomization: Reader threads start at random time intervals, and the writer thread sleeps randomly between write operations.
 
 <pre>
 Requirements:
@@ -90,18 +90,18 @@ Each reader thread attempts to read from one of the file replicas, based on load
 If a writer is active, readers will wait until the writer finishes.
 
 **Writer Thread:**
-The writer thread periodically attempts to write to all three file replicas.
+The writer thread from time to time attempts to write to all three file replicas.
 It locks all replicas simultaneously to ensure consistent content across all files.
 While the writer is active, no readers are allowed to access the files.
-Logging:
 
+**Logging:**
 Every read and write operation is logged, including the file being accessed, the number of readers, the active writer status, and the file content.
-Termination:
 
+**Termination of the program:**
 The program will run until all reader threads finish and the writer thread completes its operations.
 
 **Example Output**
-In the terminal, you'll see output similar to the following for reader and writer threads:
+In the terminal, you will see the output similar to the following for reader and writer threads:
 
 Main here. Creating writer thread
 Main here. Creating reader thread 0
@@ -126,15 +126,15 @@ Makefile (if applicable): For building the project (if you decide to use one).
 Design and Synchronization Mechanism
 The program uses a combination of:
 
-Mutexes: For mutual exclusion when modifying shared resources like the file replicas and the readers_count array.
+**Mutexes:** For mutual exclusion when modifying shared resources like the file replicas and the readers_count array.
 Condition Variables: To synchronize reader and writer threads when the writer is active.
-Semaphores: To ensure the writer thread operates without interference.
-For a more detailed explanation of the design, please refer to the accompanying report.
+**Semaphores:** To ensure the writer thread operates without conflicts.
 
+**For a more detailed explanation of the design, please refer to the report.**
 <pre>
-Known Limitations & Future Improvements:
+Some Limitations & Future Improvements:
 </pre>
-The program currently uses random sleep times for simulation purposes, which may not cover all edge cases.
+Our program currently uses random sleep times for simulation purposes, which may not cover all edge cases.
 The current implementation logs file content directly, which might not be efficient for very large files.
 Optimizing log handling to avoid repeatedly opening/closing files.
 Implementing a more advanced load balancing algorithm for readers.
