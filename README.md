@@ -6,7 +6,7 @@ Assignment 1 by Laman Panakhova 16882
 </pre>
 
 <pre>
-                                       **Readers-Writers Problem with Load Balancing**
+**Readers-Writers Problem with Load Balancing**
 </pre>
 
 <pre>
