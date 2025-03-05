@@ -21,7 +21,7 @@ The solution uses threads, synchronization mechanisms (mutexes, condition variab
 Multiple reader threads operate at random time intervals and read from one of the file replicas.
 A single writer thread periodically writes to all file replicas.
 
-**The system ensures:**
+**The system focuses on:**
 1. Writers are given priority over readers.
 2. Readers are distributed across file replicas evenly.
 3. The writer locks all file replicas simultaneously and updates their contents.
@@ -94,7 +94,7 @@ The writer thread from time to time attempts to write to all three file replicas
 It locks all replicas simultaneously to ensure consistent content across all files.
 While the writer is active, no readers are allowed to access the files.
 
-**Logging:**
+**Logging in the code:**
 Every read and write operation is logged, including the file being accessed, the number of readers, the active writer status, and the file content.
 
 **Termination of the program:**
@@ -124,11 +124,11 @@ readers_writers.c: The main program file containing the implementation.
 log.txt: The log file created by the program to track operations.
 Makefile (if applicable): For building the project (if you decide to use one).
 Design and Synchronization Mechanism
-The program uses a combination of:
 
-**Mutexes:** For mutual exclusion when modifying shared resources like the file replicas and the readers_count array.
-Condition Variables: To synchronize reader and writer threads when the writer is active.
-**Semaphores:** To ensure the writer thread operates without conflicts.
+**Our program uses a combination of:**
+**Mutexes:** Was used for mutual exclusion when modifying shared resources like the file replicas and the readers_count array.
+**Condition Variables:** Was used to synchronize reader and writer threads when the writer is active.
+**Semaphores:** Was used to ensure the writer thread operates without conflicts.
 
 **If you want a more detailed explanation of the design, please refer to the report.**
 <pre>
