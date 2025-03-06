@@ -119,16 +119,16 @@ Content of file1.txt: Updated content by writer
 Content of file2.txt: Updated content by writer
 Content of file3.txt: Updated content by writer
 
-**Code Structure**
-readers_writers.c: The main program file containing the implementation.
-log.txt: The log file created by the program to track operations.
-Makefile (if applicable): For building the project (if you decide to use one).
-Design and Synchronization Mechanism in the program 
+**Code Structure:**
+1. readers_writers.c: The main program file containing the implementation.
+2. log.txt: The log file created by the program to track operations.
+3. Makefile (if applicable): For building the project (if you decide to use one).
 
+**Design and Synchronization Mechanism in the program:**
 **Our program uses a combination of:**
-**Mutexes:** Was used for mutual exclusion when changing shared resources like the file replicas and the readers_count array.
-**Condition Variables:** Was used to synchronize reader and writer threads when the writer is active.
-**Semaphores:** Was used to ensure the writer thread that it operates without conflicts.
+1. **Mutexes:** Was used for mutual exclusion when changing shared resources like the file replicas and the readers_count array.
+2. **Condition Variables:** Was used to synchronize reader and writer threads when the writer is active.
+3. **Semaphores:** Was used to ensure the writer thread that it operates without conflicts.
 
 **If you want a more detailed explanation of the design, please refer to the assignment report.**
 <pre>
