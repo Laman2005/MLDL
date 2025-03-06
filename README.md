@@ -95,10 +95,10 @@ It locks all replicas simultaneously to ensure consistent content across all fil
 While the writer is active, no readers are allowed to access the files.
 
 **Logging in the code:**
-Every read and write operation is logged, including the file being accessed, the number of readers, the active writer status, and the file content.
+At this step every read and write operation is logged, including the file being accessed, the number of readers, the active status of the writer, and the file content.
 
 **Termination of the program:**
-The program will run until all reader threads finish and the writer thread completes its operations.
+The program will run until that moment when all reader threads finish and the writer thread completes its operations.
 
 **Example Output**
 In the terminal, you will see the output similar to the following for reader and writer threads:
@@ -123,18 +123,18 @@ Content of file3.txt: Updated content by writer
 readers_writers.c: The main program file containing the implementation.
 log.txt: The log file created by the program to track operations.
 Makefile (if applicable): For building the project (if you decide to use one).
-Design and Synchronization Mechanism
+Design and Synchronization Mechanism in the program 
 
 **Our program uses a combination of:**
-**Mutexes:** Was used for mutual exclusion when modifying shared resources like the file replicas and the readers_count array.
+**Mutexes:** Was used for mutual exclusion when changing shared resources like the file replicas and the readers_count array.
 **Condition Variables:** Was used to synchronize reader and writer threads when the writer is active.
-**Semaphores:** Was used to ensure the writer thread operates without conflicts.
+**Semaphores:** Was used to ensure the writer thread that it operates without conflicts.
 
-**If you want a more detailed explanation of the design, please refer to the report.**
+**If you want a more detailed explanation of the design, please refer to the assignment report.**
 <pre>
-Some Limitations & Future Improvements:
+Some Drawbacks & Potential Improvements:
 </pre>
-Our program currently uses random sleep times for simulation purposes, which may not cover all edge cases.
+Our program currently uses random sleep times for the purposes of simulation, which may not cover all edge cases.
 The current implementation logs file content directly, which might not be efficient for very large files.
 Optimizing log handling to avoid repeatedly opening/closing files.
 Implementing a more advanced load balancing algorithm for readers.
