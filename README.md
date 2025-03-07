@@ -109,15 +109,15 @@ Reader 0 reading from file1.txt
 Main here. Creating reader thread 1
 Reader 1 reading from file2.txt
 Writer modifying all replicas...
-The log file (log.txt) will contain information such as:
+The log file (log.txt) will contain information follows:
 
-Writer active: 1
-Readers on file1.txt: 1
-Readers on file2.txt: 1
-Readers on file3.txt: 0
-Content of file1.txt: Updated content by writer
-Content of file2.txt: Updated content by writer
-Content of file3.txt: Updated content by writer
+1. Writer active: 1
+2. Readers on file1.txt: 1
+3. Readers on file2.txt: 1
+4. Readers on file3.txt: 0
+5. Content of file1.txt: Updated content by writer
+6. Content of file2.txt: Updated content by writer
+7. Content of file3.txt: Updated content by writer
 
 **Code Structure:**
 1. readers_writers.c: The main program file containing the implementation.
